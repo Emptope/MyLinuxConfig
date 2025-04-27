@@ -1,0 +1,10 @@
+set recolor true
+set recolor-keephue false
+
+# Tokyo Night-inspired colors
+set recolor-lightcolor "#1a1b26"   # Background (deep dark blue)
+set recolor-darkcolor  "#c0caf5"   # Foreground text (soft light blue)
+
+# Search highlight customization
+set highlight-color "#7aa2f7"          # Search match color
+set highlight-active-color "#bb9af7"   # Active match color
