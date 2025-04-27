@@ -1,0 +1,65 @@
+# ~/config/zathura/zathurarc
+
+# ========= Appearance =========
+
+# Set a clear, readable sans-serif font. Adjust size as needed.
+# Ensure this font is installed on your system. (e.g., Noto Sans, DejaVu Sans)
+set font "Noto Sans 13"
+
+# Hide status/tool bar for a clean UI. Set to "" to show status bar.
+set guioptions none
+set statusbar-h-padding 4
+set statusbar-v-padding 2
+
+# Show only the filename (not the full path) in the window title.
+set window-title-basename true
+
+set page-padding 5
+
+# Adjust scrolling speed (lower value = smaller steps).
+set scroll-step 60
+
+# ========= Default Behavior =========
+
+# How pages are initially adjusted: "width" fits page width, "best-fit" fits whole page.
+set adjust-open "width"
+
+set scroll-full-overlap 0.1
+# Use the system clipboard for copy-pasting selected text.
+set selection-clipboard clipboard
+set pages-per-row 1
+set show-hidden false
+
+# Sandbox mode for security. 'normal' is recommended over 'none'. 'strict' is even safer.
+# 'none' disables security sandboxing - use with caution!
+set sandbox "normal"
+
+# ========= Search Highlight =========
+set highlight-color "#7aa2f7"
+set highlight-active-color "#bb9af7"
+
+# ========= Keybindings (Vim-like) =========
+map <C-d> scroll half-down
+map <C-u> scroll half-up
+map <C-f> scroll full-down
+map <C-b> scroll full-up
+map <Space> scroll half-down
+map <S-Space> scroll half-up
+map J navigate next
+map K navigate previous
+
+# Toggle between original document colors and the theme defined above.
+map <C-n> recolor
+
+map r reload
+map q quit
+
+# ========= Database Backend =========
+# Stores bookmarks and history.
+set database "sqlite"
+
+# ========= Theme Colors (Must be at the bottom for the shell script) =========
+
+set recolor true
+set recolor-lightcolor "#1e1e2e"
+set recolor-darkcolor "#dcd7ba"
