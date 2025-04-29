@@ -54,14 +54,22 @@ alias ga='git add'
 alias gc='git commit'
 alias gp='git push'
 alias gl='git log --oneline --graph --decorate'
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
+alias zshconfig="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias zat="zathura"
+alias ztheme="~/.config/zathura/switch-theme.sh"
 
 # ----- Preferred Editor -----
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # ----- Custom Paths -----
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
 
 # ----- Powerlevel10k Config -----
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+
+# ----- Proxy Settings -----
+export http_proxy=http://127.0.0.1:7890
+export https_proxy=http://127.0.0.1:7890
+export HTTP_PROXY=http://127.0.0.1:7890
+export HTTPS_PROXY=http://127.0.0.1:7890
