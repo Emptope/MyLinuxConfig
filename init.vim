@@ -12,13 +12,13 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'neovim/nvim-lspconfig'
 
 " --- Autocompletion Setup ---
-Plug 'hrsh7th/nvim-cmp'         " Autocompletion plugin
-Plug 'hrsh7th/cmp-nvim-lsp'     " LSP source for nvim-cmp
-Plug 'hrsh7th/cmp-buffer'       " Buffer completions
-Plug 'hrsh7th/cmp-path'         " Path completions
-Plug 'hrsh7th/cmp-cmdline'      " Command-line completions
-Plug 'L3MON4D3/LuaSnip'         " Snippet engine
-Plug 'saadparwaiz1/cmp_luasnip' " Snippet completions
+Plug 'hrsh7th/nvim-cmp'               " Autocompletion plugin
+Plug 'hrsh7th/cmp-nvim-lsp'           " LSP source for nvim-cmp
+Plug 'hrsh7th/cmp-buffer'             " Buffer completions
+Plug 'hrsh7th/cmp-path'               " Path completions
+Plug 'hrsh7th/cmp-cmdline'            " Command-line completions
+Plug 'L3MON4D3/LuaSnip'               " Snippet engine
+Plug 'saadparwaiz1/cmp_luasnip'       " Snippet completions
 
 " --- Plugins ---
 Plug 'preservim/nerdtree'             " File explorer
@@ -29,6 +29,7 @@ Plug 'ryanoasis/vim-devicons'         " Filetype icons
 Plug 'tpope/vim-fugitive'             " Git integration
 Plug 'airblade/vim-gitgutter'         " Git diff signs
 Plug 'preservim/nerdcommenter'        " Easy commenting
+Plug 'ctrlpvim/ctrlp.vim'             " Fuzzy file finder
 
 call plug#end()
 
