@@ -7,20 +7,22 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# ----- Oh My Zsh Path -----
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
 # ----- Node.js (nvm) -----
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
 
-# ----- Oh My Zsh Path -----
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
 # ----- Plugins -----
-plugins=(git z zsh-autosuggestions zsh-syntax-highlighting)
-
-# ----- Load Oh My Zsh -----
-source $ZSH/oh-my-zsh.sh
+plugins=(
+  git
+  autojump
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
 
 # ----- Completion Settings -----
 autoload -Uz compinit
@@ -45,19 +47,13 @@ setopt CORRECT
 setopt EXTENDED_GLOB
 bindkey -v  # Enable vim mode
 
+# ----- Terminal -----
+export TERM=xterm-256color
+
 # ----- Aliases -----
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-alias gs='git status'
-alias ga='git add'
-alias gc='git commit'
-alias gp='git push'
-alias gl='git log --oneline --graph --decorate'
-alias zshconfig="nvim ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
-alias zat="zathura"
-alias ztheme="~/.config/zathura/switch-theme.sh"
+if [ -f $ZSH_CUSTOM/aliases.zsh ]; then
+    source $ZSH_CUSTOM/aliases.zsh
+fi
 
 # ----- Preferred Editor -----
 export EDITOR='nvim'
@@ -73,3 +69,9 @@ export http_proxy=http://127.0.0.1:7890
 export https_proxy=http://127.0.0.1:7890
 export HTTP_PROXY=http://127.0.0.1:7890
 export HTTPS_PROXY=http://127.0.0.1:7890
+
+noproxy () {
+  unset http_proxy
+  unset https_proxy
+  echo "HTTP Proxy off"
+}
