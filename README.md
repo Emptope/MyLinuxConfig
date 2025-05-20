@@ -1,2 +1,2 @@
 # MyLinuxConfig
-Personal configuration of Linux.
+Personal configurations of Linux.
