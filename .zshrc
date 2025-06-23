@@ -26,12 +26,12 @@ export ALL_PROXY=socks5://127.0.0.1:7890
 
 # ====== Oh My Zsh & Plugins ======
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME=""
+export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 plugins=(
     git 
     z 
     zsh-autosuggestions 
-    zsh-syntax-highlighting
+    fast-syntax-highlighting
 )
 source $ZSH/oh-my-zsh.sh
 
