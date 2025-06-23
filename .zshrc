@@ -7,7 +7,6 @@ export LC_ALL=en_US.UTF-8
 export DOCKER_BUILDKIT=1
 
 # Python
-export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
