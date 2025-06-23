@@ -17,13 +17,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
 
-# Proxy Settings
-export http_proxy=http://127.0.0.1:7890
-export https_proxy=http://127.0.0.1:7890
-export HTTP_PROXY=http://127.0.0.1:7890
-export HTTPS_PROXY=http://127.0.0.1:7890
-export ALL_PROXY=socks5://127.0.0.1:7890
-
 # ====== Oh My Zsh & Plugins ======
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
@@ -52,12 +45,60 @@ bindkey -v  # vim mode
 export EDITOR='nvim'
 
 # ====== Custom Paths ======
-export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
+add_path() {
+  local dir="$1"
+  if [ -d "$dir" ] && [[ ":$PATH:" != *":$dir:"* ]]; then
+    PATH="$dir:$PATH"
+  fi
+}
+
+add_path "$HOME/bin"
+add_path "$HOME/.local/bin"
+add_path "/usr/local/bin"
+add_path "$HOME/.pyenv/bin"
+add_path "$HOME/.cargo/bin"
+
+export PATH
 
 # ====== Aliases ======
 if [ -f "$HOME/.zsh_aliases" ]; then
   source "$HOME/.zsh_aliases"
 fi
+
+# ====== Proxy Toggle Function ======
+proxy() {
+  local mode=$1
+  local host="127.0.0.1"
+  local port="7890"
+
+  case "$mode" in
+    on)
+      export http_proxy="http://$host:$port"
+      export https_proxy="http://$host:$port"
+      export HTTP_PROXY="http://$host:$port"
+      export HTTPS_PROXY="http://$host:$port"
+      export ALL_PROXY="socks5://$host:$port"
+      echo "Proxy enabled on $host:$port"
+      ;;
+    off)
+      unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY ALL_PROXY
+      echo "Proxy disabled"
+      ;;
+    status)
+      if [[ -n "$http_proxy" ]]; then
+        echo "Proxy is currently ENABLED:"
+        echo "http_proxy=$http_proxy"
+        echo "https_proxy=$https_proxy"
+        echo "ALL_PROXY=$ALL_PROXY"
+      else
+        echo "Proxy is currently DISABLED"
+      fi
+      ;;
+    *)
+      echo "Usage: proxy {on|off|status}"
+      ;;
+  esac
+}
 
 # ====== Starship Theme =====
 eval "$(starship init zsh)"
