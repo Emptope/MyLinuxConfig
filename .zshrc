@@ -3,6 +3,22 @@
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+# Custom Paths
+add_path() {
+  local dir="$1"
+  if [ -d "$dir" ] && [[ ":$PATH:" != *":$dir:"* ]]; then
+    PATH="$dir:$PATH"
+  fi
+}
+
+add_path "$HOME/bin"
+add_path "$HOME/.local/bin"
+add_path "/usr/local/bin"
+add_path "$HOME/.pyenv/bin"
+add_path "$HOME/.cargo/bin"
+
+export PATH
+
 # Docker
 export DOCKER_BUILDKIT=1
 
@@ -42,22 +58,6 @@ bindkey -v  # vim mode
 
 # ====== Preferred Editor ======
 export EDITOR='nvim'
-
-# ====== Custom Paths ======
-add_path() {
-  local dir="$1"
-  if [ -d "$dir" ] && [[ ":$PATH:" != *":$dir:"* ]]; then
-    PATH="$dir:$PATH"
-  fi
-}
-
-add_path "$HOME/bin"
-add_path "$HOME/.local/bin"
-add_path "/usr/local/bin"
-add_path "$HOME/.pyenv/bin"
-add_path "$HOME/.cargo/bin"
-
-export PATH
 
 # ====== Aliases ======
 if [ -f "$HOME/.zsh_aliases" ]; then
