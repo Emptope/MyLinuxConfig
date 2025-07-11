@@ -1,5 +1,5 @@
 /* READ AND DELETE THIS COMMENT.
- * ~/.vim/coo-settings.json 
+ * ~/.vim/coc-settings.json 
  */
 {
 	"diagnostic.level": "error",
